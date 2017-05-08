@@ -16,10 +16,15 @@ public abstract class BaseDao<T> implements IDao<T>
 
 	protected Class<T> clazz;
 
-	public void update(String sql, Object... args)
+	@Override
+	public int update(String sql, Object... args)
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		int primaryKey = -1;
+		
 		try
 		{
 			connection = JDBCTools.getConnection();
@@ -31,15 +36,21 @@ public abstract class BaseDao<T> implements IDao<T>
 			}
 
 			preparedStatement.executeUpdate();
+			
+			resultSet = preparedStatement.getGeneratedKeys();
+			if (resultSet.next())
+				primaryKey = resultSet.getInt(1);
 		} catch (Exception e)
 		{
 			e.printStackTrace();
 		} finally
 		{
-			JDBCTools.releaseDB(null, preparedStatement, connection);
+			JDBCTools.releaseDB(resultSet, preparedStatement, connection);
 		}
+		return primaryKey;
 	}
 
+	@Override
 	public T getSingleObject(String sql, Object... args)
 	{
 		List<T> result = getForList(sql, args);
@@ -48,9 +59,10 @@ public abstract class BaseDao<T> implements IDao<T>
 		return null;
 	}
 
+	@Override
 	public List<T> getForList(String sql, Object... args)
 	{
-		List<T> entities = new ArrayList<T>();
+		List<T> entities = new ArrayList<>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -67,7 +79,7 @@ public abstract class BaseDao<T> implements IDao<T>
 
 			resultSet = preparedStatement.executeQuery();
 
-			List<String> columnLabel = new ArrayList<String>();
+			List<String> columnLabel = new ArrayList<>();
 			ResultSetMetaData rsmd = resultSet.getMetaData();
 			int columnCount = rsmd.getColumnCount();
 			for (int j = 0; j < columnCount; j++)
@@ -104,6 +116,7 @@ public abstract class BaseDao<T> implements IDao<T>
 		return entities;
 	}
 
+	@Override
 	public Object getSingleValue(String sql, Object... args)
 	{
 		Object value = null;

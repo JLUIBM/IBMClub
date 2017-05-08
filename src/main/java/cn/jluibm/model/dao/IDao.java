@@ -9,8 +9,9 @@ public interface IDao<T>
 	 * 
 	 * @param sql
 	 * @param args
+	 * @return 主键值
 	 */
-	public void update(String sql, Object... args);
+	public int update(String sql, Object... args);
 
 	/**
 	 * 返回查到的一个对象

@@ -17,11 +17,11 @@ public class User
 	private String qq;
 	private String email;
 	private int permission;
-	private Date logonTime;
+	private Date signupTime;
 	private Date birthday;
 	
 	public User(String username, String password, String realname, boolean sex, String academy, int degree,
-			int grade, String studentNum, String phoneNum, String qq, String email, int permission, Date logonTime,
+			int grade, String studentNum, String phoneNum, String qq, String email, int permission, Date signupTime,
 			Date birthday)
 	{
 		super();
@@ -37,11 +37,11 @@ public class User
 		this.qq = qq;
 		this.email = email;
 		this.permission = permission;
-		this.logonTime = logonTime;
+		this.signupTime = signupTime;
 		this.birthday = birthday;
 	}
 	public User(String username, String password, String realname, boolean sex, String academy, int degree,
-			int grade, String studentNum, String phoneNum, String qq, String email, int permission, Date logonTime)
+			int grade, String studentNum, String phoneNum, String qq, String email, int permission, Date signupTime)
 	{
 		super();
 		this.username = username;
@@ -56,7 +56,7 @@ public class User
 		this.qq = qq;
 		this.email = email;
 		this.permission = permission;
-		this.logonTime = logonTime;
+		this.signupTime = signupTime;
 	}
 	public User()
 	{
@@ -168,13 +168,13 @@ public class User
 	{
 		this.permission = permission;
 	}
-	public Date getLogonTime()
+	public Date getSignupTime()
 	{
-		return logonTime;
+		return signupTime;
 	}
-	public void setLogonTime(Date logonTime)
+	public void setSignupTime(Date signupTime)
 	{
-		this.logonTime = logonTime;
+		this.signupTime = signupTime;
 	}
 	public Date getBirthday()
 	{
