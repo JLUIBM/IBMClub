@@ -12,7 +12,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 public class JDBCTools
 {
 
-	private  static DataSource dataSource = new ComboPooledDataSource("ibmc3p0");
+	private static DataSource dataSource = new ComboPooledDataSource("ibmc3p0");
 
 	public static Connection getConnection() throws SQLException
 	{
