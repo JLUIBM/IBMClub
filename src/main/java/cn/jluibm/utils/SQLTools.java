@@ -11,5 +11,5 @@ public class SQLTools
 			+ "activity_id activityId,signin_time signinTime from activity_signin ";
 	public static final String QUERY_ACTIVITY = "select activity_id activityId,title,"
 			+ "activity_time activityTime,publish_time publishTime,manager,location,"
-			+ "content from activities ";
+			+ "content, user_id userId from activities ";
 }

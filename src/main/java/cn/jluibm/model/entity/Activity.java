@@ -11,9 +11,10 @@ public class Activity
 	private String manager;
 	private String location;
 	private String content;
+	private int userId;
 	
 	public Activity(String title, Timestamp activityTime, Timestamp publishTime, String manager, String location,
-			String content)
+			String content, int userId)
 	{
 		super();
 		this.title = title;
@@ -22,12 +23,14 @@ public class Activity
 		this.manager = manager;
 		this.location = location;
 		this.content = content;
+		this.userId = userId;
 	}
+
 	public Activity()
 	{
 		super();
 	}
-	
+
 	public int getActivityId()
 	{
 		return activityId;
@@ -83,6 +86,16 @@ public class Activity
 	public void setContent(String content)
 	{
 		this.content = content;
+	}
+
+	public int getUserId()
+	{
+		return userId;
+	}
+
+	public void setUserId(Integer userId)
+	{
+		this.userId = userId;
 	}
 	
 

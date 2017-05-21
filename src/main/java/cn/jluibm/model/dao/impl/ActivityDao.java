@@ -14,10 +14,10 @@ public class ActivityDao extends BaseDao<Activity>
 	{
 		Activity activity = (Activity) obj;
 		String sql = "insert into activities(title,activity_time,publish_time,manager,"
-				+ "location,content) values(?,?,?,?,?,?)";
+				+ "location,content,user_id) values(?,?,?,?,?,?,?)";
 		int activityId = update(sql, activity.getTitle(), activity.getActivityTime(), 
 				activity.getPublishTime(), activity.getManager(), activity.getLocation(), 
-				activity.getContent());
+				activity.getContent(),activity.getUserId());
 		activity.setActivityId(activityId);
 	}
 
