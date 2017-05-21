@@ -1,4 +1,4 @@
-package cn.jluibm.model.filter;
+package cn.jluibm.filter;
 
 import java.io.IOException;
 

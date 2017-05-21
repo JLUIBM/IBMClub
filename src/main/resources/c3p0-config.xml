@@ -5,9 +5,9 @@
 
         <!-- 指定连接数据源的基本属性 -->
         <property name="user">root</property>
-        <property name="password">Mysql5.1</property>
+        <property name="password">root</property>
         <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql:///jluibm</property>
+        <property name="jdbcUrl">jdbc:mysql:///jluibm?useSSL=false</property>
 
         <!-- 数据库连接池连接数少于最小数时，每次申请的连接数 -->
         <property name="acquireIncrement">5</property>
