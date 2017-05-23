@@ -2,7 +2,7 @@ package cn.jluibm.controller;
 
 import cn.jluibm.model.dao.impl.UserDao;
 import cn.jluibm.model.entity.User;
-import cn.jluibm.utils.CheckTools;
+import cn.jluibm.utils.FormTools;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -51,7 +51,7 @@ public class RegisterServlet extends HttpServlet {
         user.setStudentNum("000");
         user.setSignupTime((java.sql.Date)new Date());
 
-        if(!CheckTools.checkEmail(user.getEmail())) {
+        if(!FormTools.checkEmail(user.getEmail())) {
             messages.add("邮箱非法。");
         }
 
