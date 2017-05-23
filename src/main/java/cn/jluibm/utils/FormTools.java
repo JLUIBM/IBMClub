@@ -16,11 +16,8 @@ public class FormTools {
      * @return 是否为邮箱
      */
     public static boolean checkEmail(String text) {
-<<<<<<< HEAD
         if (text == null)
             return false;
-=======
->>>>>>> origin/master
         Pattern pattern = Pattern.compile(PATTERN_EMAIL);
         Matcher matcher = pattern.matcher(text);
         return matcher.matches();
