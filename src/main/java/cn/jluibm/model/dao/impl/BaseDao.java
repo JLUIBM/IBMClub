@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public abstract class BaseDao<T> implements IDao<T>
 		try
 		{
 			connection = JDBCTools.getConnection();
-			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			for (int i = 0; i < args.length; i++)
 			{
