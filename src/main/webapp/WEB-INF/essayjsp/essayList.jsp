@@ -35,8 +35,8 @@
 				<%= ReflectionTools.getter(essay, "title") %>></a></td>
 				<td><%= ReflectionTools.getter(essay, "time") %></td>
 				<td><%= ReflectionTools.getter(essay, "state") %></td>
-				<td><a href="<%= request.getContextPath() %>/user/essayEdit?index=<%= i %>" >编辑</a>
-				<a href="<%= request.getContextPath() %>/removeessay?index=<%= i %>">删除</a></td>
+				<td><a href="<%= request.getContextPath() %>/essayEdit?index=<%= i %>" >编辑</a>
+				<a href="<%= request.getContextPath() %>/removeEssay?index=<%= i %>">删除</a></td>
 			</tr>
 		<%
 			}

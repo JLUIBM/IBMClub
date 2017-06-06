@@ -46,6 +46,14 @@
         <servlet-name>essayList</servlet-name>
         <servlet-class>cn.jluibm.controller.EssayListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>removeEssay</servlet-name>
+        <servlet-class>cn.jluibm.controller.RemoveEssayServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>essayHome</servlet-name>
+        <servlet-class>cn.jluibm.controller.EssayHomeServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>helloworld</servlet-name>
@@ -65,7 +73,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>essayEdit</servlet-name>
-        <url-pattern>/user/essayEdit</url-pattern>
+        <url-pattern>/essayEdit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>essayDetail</servlet-name>
@@ -73,8 +81,16 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>essayList</servlet-name>
-        <url-pattern>/admin/essay</url-pattern>
+        <url-pattern>/essayList</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>removeEssay</servlet-name>
+        <url-pattern>/removeEssay</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>essayHome</servlet-name>
+        <url-pattern>/essayHome</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
 

@@ -32,10 +32,10 @@ public class EssayEditServlet extends HttpServlet
 			throws ServletException, IOException 
 	{
 		Pattern pattern = Pattern.compile("^[0-9]{1,5}$"); 
-		//没有传index 跳到writeEssay.jsp
+		//没有传index 直接跳转
 		if (request.getParameter("index") == null)
 		{
-			request.getRequestDispatcher("/WEB-INF/essayjsp/writeEssay.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/essayjsp/editEssay.jsp").forward(request, response);
 		}
 		//index非法 跳到错误页
 		else if(! pattern.matcher((CharSequence) request.getParameter("index")).matches())

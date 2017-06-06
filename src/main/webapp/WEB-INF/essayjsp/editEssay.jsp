@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false" %>
-    <%@ page import="java.util.*" %>
-    <%@ page import="cn.jluibm.model.entity.Essay" %>
-    <%@ page import="cn.jluibm.utils.ReflectionTools" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,7 +9,7 @@
 </head>
 <body>
 
-<form action="<%= request.getContextPath() %>/user/essayEdit" method="post" >
+<form action="<%= request.getContextPath() %>/essayEdit" method="post" >
 
 	<label for="title">标题:</label>
 	<input name="title" id="title" type="text" value="${requestScope.title}" >
