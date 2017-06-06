@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="/IBMClub/cn/jluibm/controller/essay/servlet/writeessay" method="post" >
+<form action="<%= request.getContextPath() %>/user/essayEdit" method="post" >
 
 	<label for="title">标题:</label>
 	<input name="title" id="title" type="text" value="${requestScope.title}" >

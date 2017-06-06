@@ -16,7 +16,7 @@
 		String topic = (String) request.getAttribute("topic");
 		String content = (String) request.getAttribute("content");
 	%>
-	<a href="/IBMClub/cn/jluibm/controller/essay/servlet/essaylist">返回文章列表</a>
+	<a href="<%= request.getContextPath() %>/essay">返回文章列表</a>
 	标题:<p>${requestScope.title}</p>
 	<br>
 	

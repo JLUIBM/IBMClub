@@ -34,6 +34,18 @@
         <servlet-name>userList</servlet-name>
         <servlet-class>cn.jluibm.controller.UserListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>essayEdit</servlet-name>
+        <servlet-class>cn.jluibm.controller.EssayEditServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>essayDetail</servlet-name>
+        <servlet-class>cn.jluibm.controller.EssayDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>essayList</servlet-name>
+        <servlet-class>cn.jluibm.controller.EssayListServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>helloworld</servlet-name>
@@ -50,6 +62,18 @@
     <servlet-mapping>
         <servlet-name>userList</servlet-name>
         <url-pattern>/admin/users</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>essayEdit</servlet-name>
+        <url-pattern>/user/essayEdit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>essayDetail</servlet-name>
+        <url-pattern>/essay</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>essayList</servlet-name>
+        <url-pattern>/admin/essay</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -17,7 +17,7 @@
 		String essayState = (String) session.getAttribute("essayState");
 		List<Essay> essayList = (List<Essay>) session.getAttribute("essayList");
 	%>
-	<a href="/JLUIBM/cn/jluibm/controller/essay/servlet/essayhomepage">返回文章首页</a>
+	<a href="<%= request.getContextPath() %>">返回文章首页</a>
 	<table border="1" bgcolor="pink">
 		<tr>
 			<th>标题</th>
@@ -31,12 +31,12 @@
 				Essay essay = essayList.get(i);
 		%>
 			<tr>
-				<td><a href="/IBMClub/cn/jluibm/controller/essay/servlet/essaydetail?index=<%= i %>" >
+				<td><a href="<%= request.getContextPath() %>/essay?index=<%= i %>" >
 				<%= ReflectionTools.getter(essay, "title") %>></a></td>
 				<td><%= ReflectionTools.getter(essay, "time") %></td>
 				<td><%= ReflectionTools.getter(essay, "state") %></td>
-				<td><a href="/IBMClub/cn/jluibm/controller/essay/servlet/editessay?index=<%= i %>" >编辑</a> 
-				<a href="/IBMClub/cn/jluibm/controller/essay/servlet/removeessay?index=<%= i %>">删除</a></td>
+				<td><a href="<%= request.getContextPath() %>/user/essayEdit?index=<%= i %>" >编辑</a>
+				<a href="<%= request.getContextPath() %>/removeessay?index=<%= i %>">删除</a></td>
 			</tr>
 		<%
 			}
