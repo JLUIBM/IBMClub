@@ -49,6 +49,7 @@ public class EditEssayServlet extends HttpServlet
 		{
 			int index = Integer.parseInt(request.getParameter("index"));
 			HttpSession session = request.getSession();
+			@SuppressWarnings("unchecked")
 			List<Essay> essayList = (List<Essay>) session.getAttribute("essayList");
 			//取得具体文章
 			Essay essay = (Essay) essayList.get(index);

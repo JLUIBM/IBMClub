@@ -39,6 +39,7 @@ public class EssayDetailServlet extends HttpServlet
 			//错误处理页
 			response.sendRedirect(null);
 		}
+		@SuppressWarnings("unchecked")
 		List<Essay> essayList = (List<Essay>) session.getAttribute("essayList");
 		int index = Integer.parseInt(request.getParameter("index"));
 		Essay essay = essayList.get(index);
