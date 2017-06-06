@@ -1,4 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
+
+## Configure file
+
+/src/main/resources/c3p0-config.xml
+
 ### JetBrains template
 
 *.iml

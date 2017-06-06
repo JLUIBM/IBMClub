@@ -32,6 +32,15 @@ public class RegisterServlet extends HttpServlet {
         User user = new User();
         List<String> messages = new ArrayList<>();
 
+        try {
+            String email = request.getParameter("email");
+            if (!FormTools.checkEmail(email)) {
+                throw new RegisterException("Email");
+            }
+        } catch (RegisterException re) {
+            re.printStackTrace();
+        }
+
         user.setEmail(request.getParameter("email"));
 
         user.setUsername(request.getParameter("username"));
@@ -49,7 +58,8 @@ public class RegisterServlet extends HttpServlet {
         user.setPermission(0);
         user.setPhoneNum("000");
         user.setStudentNum("000");
-        user.setSignupTime((java.sql.Date)new Date());
+        user.setSignupTime(new Date());
+        user.setQq("");
 
         if(!FormTools.checkEmail(user.getEmail())) {
             messages.add("邮箱非法。");
@@ -88,6 +98,17 @@ public class RegisterServlet extends HttpServlet {
             response.sendRedirect("/user");
         }
 
+    }
+
+    private static class RegisterException extends Exception {
+        public RegisterException(String message) {
+            super(message);
+        }
+
+        @Override
+        public String getMessage() {
+            return super.getMessage();
+        }
     }
 
 }
