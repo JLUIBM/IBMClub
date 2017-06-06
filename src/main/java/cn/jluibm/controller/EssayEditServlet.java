@@ -37,6 +37,7 @@ public class EssayEditServlet extends HttpServlet
 		{
 			request.getRequestDispatcher("/WEB-INF/essayjsp/editEssay.jsp").forward(request, response);
 		}
+		
 		//index非法 跳到错误页
 		else if(! pattern.matcher((CharSequence) request.getParameter("index")).matches())
 		{
