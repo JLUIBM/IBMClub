@@ -19,7 +19,9 @@ import java.util.List;
  */
 public class RegisterServlet extends HttpServlet {
 
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
@@ -101,7 +103,10 @@ public class RegisterServlet extends HttpServlet {
     }
 
     private static class RegisterException extends Exception {
-        public RegisterException(String message) {
+
+		private static final long serialVersionUID = 1L;
+
+		public RegisterException(String message) {
             super(message);
         }
 

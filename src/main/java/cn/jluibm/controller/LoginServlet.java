@@ -18,7 +18,8 @@ import cn.jluibm.utils.SQLTools;
  */
 public class LoginServlet extends HttpServlet {
 
-    private transient String redirectUrl;
+	private static final long serialVersionUID = 1L;
+	private transient String redirectUrl;
 
     @Override
     public void init(ServletConfig config) throws ServletException {

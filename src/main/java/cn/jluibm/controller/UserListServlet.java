@@ -17,7 +17,8 @@ import java.util.List;
  */
 public class UserListServlet extends HttpServlet {
 
-    private UserDao userDao;
+	private static final long serialVersionUID = 1L;
+	private UserDao userDao;
 
     @Override
     public void init() throws ServletException {
