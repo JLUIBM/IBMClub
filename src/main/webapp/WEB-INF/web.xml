@@ -54,6 +54,16 @@
         <servlet-name>essayHome</servlet-name>
         <servlet-class>cn.jluibm.controller.EssayHomeServlet</servlet-class>
     </servlet>
+  <servlet>
+    <servlet-name>ActivityListServlet</servlet-name>
+    <servlet-class>cn.jluibm.controller.ActivityListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ActivityInputServlet</servlet-name>
+    <servlet-class>cn.jluibm.controller.ActivityInputServlet</servlet-class>
+  </servlet>
+
+
 
     <servlet-mapping>
         <servlet-name>helloworld</servlet-name>
@@ -91,6 +101,14 @@
         <servlet-name>essayHome</servlet-name>
         <url-pattern>/essayHome</url-pattern>
     </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ActivityListServlet</servlet-name>
+    <url-pattern>/ActivityListServlet-admin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ActivityInputServlet</servlet-name>
+    <url-pattern>/ActivityInputServlet-admin</url-pattern>
+  </servlet-mapping>
     
 </web-app>
 
