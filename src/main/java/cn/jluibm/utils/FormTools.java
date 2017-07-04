@@ -10,6 +10,8 @@ public class FormTools {
 
     private static String PATTERN_EMAIL = "^([\\w-_]+(?:\\.[\\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\\.[a-z]{2,6})$";
 
+    private static String PATTERN_MOBILE = "^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\\d{8}$";
+
     /**
      * 检测文本是否为邮箱地址
      * @param text 文本
@@ -19,6 +21,14 @@ public class FormTools {
         if (text == null)
             return false;
         Pattern pattern = Pattern.compile(PATTERN_EMAIL);
+        Matcher matcher = pattern.matcher(text);
+        return matcher.matches();
+    }
+
+    public static boolean checkPhoneNum(String text) {
+        if (text == null)
+            return false;
+        Pattern pattern = Pattern.compile(PATTERN_MOBILE);
         Matcher matcher = pattern.matcher(text);
         return matcher.matches();
     }

@@ -9,11 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by hyec on 2017/5/7.
@@ -84,17 +81,22 @@ public class RegisterServlet extends HttpServlet {
         user.setUsername(request.getParameter("username"));
         user.setPassword(request.getParameter("password"));
         user.setRealname(request.getParameter("realname"));
+        user.setPhoneNum(request.getParameter("phonenum"));
 
         if (!FormTools.checkEmail(user.getEmail())) {
             throw new RegisterException("邮箱非法");
         }
 
         if (!FormTools.checkText(user.getPassword(), 6, 20)) {
-            throw new RegisterException("密码长度不合适");
+            throw new RegisterException("密码长度不合法");
         }
 
         if (!FormTools.checkText(user.getRealname(), 2, 10)) {
-            throw new RegisterException("用户名长度不合适");
+            throw new RegisterException("用户名长度不合法");
+        }
+
+        if (!FormTools.checkPhoneNum(user.getPhoneNum())) {
+            throw new RegisterException("手机号不合法");
         }
 
         return user;
