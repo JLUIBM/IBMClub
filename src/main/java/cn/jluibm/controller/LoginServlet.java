@@ -20,6 +20,7 @@ public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private transient String redirectUrl;
+	private transient UserDao userDao;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -27,6 +28,12 @@ public class LoginServlet extends HttpServlet {
         if (redirectUrl == null) {
             redirectUrl = "/";
         }
+        init();
+    }
+
+    @Override
+    public void init() throws ServletException {
+        this.userDao = new UserDao();
     }
 
     @Override
@@ -51,19 +58,17 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User user = new UserDao().getSingleObject(SQLTools.QUERY_USER + "where email=? and password=?", email, password);
+        User user = userDao.getSingleObject(SQLTools.QUERY_USER + "where email=? and password=?", email, password);
 
         if (user != null) {
-            request.setAttribute("message", "用户名密码不匹配。");
             session.setAttribute("user", user);
             response.sendRedirect(redirectUrl);
         } else {
             request.setAttribute("email", email);
+            request.setAttribute("message", "用户名密码不匹配。");
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
 
-
     }
-
 
 }

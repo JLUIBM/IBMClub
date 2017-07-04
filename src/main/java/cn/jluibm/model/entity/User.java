@@ -1,6 +1,6 @@
 package cn.jluibm.model.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class User
 {

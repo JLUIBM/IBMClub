@@ -8,7 +8,6 @@
         <filter-name>userFilter</filter-name>
         <filter-class>cn.jluibm.filter.UserFilter</filter-class>
     </filter>
-
     <filter-mapping>
         <filter-name>userFilter</filter-name>
         <url-pattern>/user/*</url-pattern>

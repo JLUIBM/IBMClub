@@ -3,6 +3,7 @@ package cn.jluibm.controller;
 import cn.jluibm.model.dao.impl.UserDao;
 import cn.jluibm.model.entity.User;
 import cn.jluibm.utils.FormTools;
+import cn.jluibm.utils.SQLTools;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,9 +20,16 @@ import java.util.List;
  */
 public class RegisterServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Override
+    private UserDao userDao;
+
+    @Override
+    public void init() throws ServletException {
+        this.userDao = new UserDao();
+    }
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
@@ -29,27 +37,27 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int parameterLen;
-
-        User user = new User();
-        List<String> messages = new ArrayList<>();
-
+        User user;
         try {
-            String email = request.getParameter("email");
-            if (!FormTools.checkEmail(email)) {
-                throw new RegisterException("Email");
+            user = userForm(request);
+
+            User checkUser = userDao.getSingleObject(
+                    SQLTools.QUERY_USER + "where email=?", user.getEmail());
+
+            if (checkUser != null) {
+                throw new RegisterException("邮箱已存在");
             }
+
         } catch (RegisterException re) {
-            re.printStackTrace();
+            request.setAttribute("email", request.getParameter("email"));
+            request.setAttribute("username", request.getParameter("username"));
+            request.setAttribute("realname", request.getParameter("realname"));
+            request.setAttribute("messages", re.getMessage());
+
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+
+            return;
         }
-
-        user.setEmail(request.getParameter("email"));
-
-        user.setUsername(request.getParameter("username"));
-        user.setPassword(request.getParameter("password"));
-
-        user.setRealname(request.getParameter("realname"));
-
 
         //TODO: 实现下列功能
         user.setUsername("test");
@@ -60,53 +68,43 @@ public class RegisterServlet extends HttpServlet {
         user.setPermission(0);
         user.setPhoneNum("000");
         user.setStudentNum("000");
-        user.setSignupTime(new Date());
+        user.setSignupTime(new java.sql.Date(new Date().getTime()));
         user.setQq("");
 
-        if(!FormTools.checkEmail(user.getEmail())) {
-            messages.add("邮箱非法。");
+        userDao.addObject(user);
+
+        response.sendRedirect("/login?reg=success");
+
+    }
+
+    private static User userForm(HttpServletRequest request) throws RegisterException {
+        User user = new User();
+
+        user.setEmail(request.getParameter("email"));
+        user.setUsername(request.getParameter("username"));
+        user.setPassword(request.getParameter("password"));
+        user.setRealname(request.getParameter("realname"));
+
+        if (!FormTools.checkEmail(user.getEmail())) {
+            throw new RegisterException("邮箱非法");
         }
 
-//        parameterLen = user.getUsername().length();
-//        if(parameterLen < 5 || parameterLen > 20) {
-//            messages.add("用户名长度不合适");
-//        } else {
-//            //TODO: 用户名重复检测
-//        }
-
-        parameterLen = user.getPassword().length();
-        if(parameterLen < 6 || parameterLen > 20) {
-            messages.add("密码长度不合适");
+        if (!FormTools.checkText(user.getPassword(), 6, 20)) {
+            throw new RegisterException("密码长度不合适");
         }
 
-        parameterLen = user.getRealname().length();
-        if(parameterLen < 1 || parameterLen > 20) {
-            messages.add("姓名长度不合适");
+        if (!FormTools.checkText(user.getRealname(), 2, 10)) {
+            throw new RegisterException("用户名长度不合适");
         }
 
-        if(messages.size() > 0) {
-            request.setAttribute("email", user.getEmail());
-            request.setAttribute("username", user.getUsername());
-            request.setAttribute("realname", user.getRealname());
-            request.setAttribute("messages", messages);
-
-            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-        } else {
-
-            new UserDao().addObject(user);
-            HttpSession session = request.getSession();
-            session.setAttribute("user", session);
-
-            response.sendRedirect("/user");
-        }
-
+        return user;
     }
 
     private static class RegisterException extends Exception {
 
-		private static final long serialVersionUID = 1L;
+        private static final long serialVersionUID = 1L;
 
-		public RegisterException(String message) {
+        RegisterException(String message) {
             super(message);
         }
 

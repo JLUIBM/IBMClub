@@ -11,42 +11,52 @@
 <head>
     <title>注册</title>
     <meta charset="UTF-8">
+
+    <link href="<c:url value="/css/register.css"/>" type="text/css" rel="stylesheet">
 </head>
+
+
 <body>
-<form method="post" >
+<div class="bg">
+    <div id="wrap">
+        <div class="tit">
+            <p class="word">注册</p>
+        </div>
+        <div class="content">
+            <form action="<c:url value="/register"/>" method="post">
+                <dl class="cont1">
+                    <dd>Email</dd>
+                    <dt><input type="text" name="email" id="email" tabindex="5" placeholder="请输入Email地址" value="${email}">
+                    </dt>
+                </dl>
+                <dl class="cont1">
+                    <dd>密码</dd>
+                    <dt><input type="password" name="password" id="password" placeholder="请输入密码" value=""></dt>
+                </dl>
+                <dl class="cont1">
+                    <dd>确认密码</dd>
+                    <dt><input type="password" name="repassword" id="repassword" placeholder="请确认密码" value=""></dt>
+                </dl>
+                <dl class="cont1">
+                    <dd>真实姓名</dd>
+                    <dt><input type="text" name="realname" id="realname" placeholder="请输入真实姓名" value="${realname}"></dt>
+                </dl>
+                <dl class="cont1">
+                    <dd>电话号码</dd>
+                    <dt><input type="text" alt="" name="phonenum" id="phonenum" placeholder="请输入可联系的电话号码"></dt>
+                </dl>
+                <div class="bottom_btn">
+                    <button type="submit" value="注册" id="register_btn">注册</button>
+                </div>
+                <a href="<c:url value="/login" />" class="alright">已有账号</a>
 
-    <c:forEach var="message" items="${messages}">
-        <p>${message}</p>
-    </c:forEach>
-
-    <label for="email">邮箱</label>
-    <input type="email" name="email" id="email" value="${email}" />
-
-    <br/>
-
-    <label for="password">密码</label>
-    <input type="password" name="password" id="password" value="" />
-
-    <br/>
-
-    <label for="repeat">重复</label>
-    <input type="password" name="repeat" id="repeat" value="" />
-
-    <br/>
-
-    <label for="realname">姓名</label>
-    <input type="text" name="realname" id="realname" value="${realname}" />
-
-    <br/>
-
-    <label for="gender">性别</label>
-    <select id="gender" name="gender" >
-        <option selected disabled >请选择</option>
-        <option value="1">男</option>
-        <option value="2">女</option>
-    </select>
-
-    <button type="submit">提交</button>
-</form>
+                <c:forEach var="message" items="${messages}">
+                    <p>${message}</p>
+                </c:forEach>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
+
 </html>
