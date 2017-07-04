@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
             session.setAttribute("user", user);
-            response.sendRedirect(redirectUrl);
+            response.sendRedirect(request.getContextPath() + redirectUrl);
         } else {
             request.setAttribute("email", email);
             request.setAttribute("message", "用户名密码不匹配。");

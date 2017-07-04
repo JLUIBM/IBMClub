@@ -70,7 +70,7 @@ public class RegisterServlet extends HttpServlet {
 
         userDao.addObject(user);
 
-        response.sendRedirect("/login?reg=success");
+        response.sendRedirect(request.getContextPath() + "/login?reg=success");
 
     }
 
