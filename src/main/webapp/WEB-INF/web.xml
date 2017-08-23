@@ -46,24 +46,8 @@
         <servlet-class>cn.jluibm.controller.UserListServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>essayEdit</servlet-name>
-        <servlet-class>cn.jluibm.controller.EssayEditServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>essayDetail</servlet-name>
-        <servlet-class>cn.jluibm.controller.EssayDetailServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>essayList</servlet-name>
-        <servlet-class>cn.jluibm.controller.EssayListServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>removeEssay</servlet-name>
-        <servlet-class>cn.jluibm.controller.RemoveEssayServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>essayHome</servlet-name>
-        <servlet-class>cn.jluibm.controller.EssayHomeServlet</servlet-class>
+        <servlet-name>essayServlet</servlet-name>
+        <servlet-class>cn.jluibm.controller.EssayServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ActivityListServlet</servlet-name>
@@ -91,26 +75,10 @@
         <servlet-name>userList</servlet-name>
         <url-pattern>/admin/users</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>essayEdit</servlet-name>
-        <url-pattern>/essayEdit</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>essayDetail</servlet-name>
-        <url-pattern>/essay</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>essayList</servlet-name>
-        <url-pattern>/essayList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>removeEssay</servlet-name>
-        <url-pattern>/removeEssay</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>essayHome</servlet-name>
-        <url-pattern>/essayHome</url-pattern>
-    </servlet-mapping>
+   <servlet-mapping>
+       <servlet-name>essayServlet</servlet-name>
+       <url-pattern>/essay</url-pattern>
+   </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ActivityListServlet</servlet-name>
         <url-pattern>/ActivityListServlet-admin</url-pattern>
