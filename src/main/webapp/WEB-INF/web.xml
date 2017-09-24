@@ -99,11 +99,11 @@
     </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ActivityChangeServlet</servlet-name>
-    <url-pattern>/ActivityChangeServlet</url-pattern>
+    <url-pattern>/ActivityChangeServlet-admin</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ActivityDeleteServlet</servlet-name>
-    <url-pattern>/ActivityDeleteServlet</url-pattern>
+    <url-pattern>/ActivityDeleteServlet-admin</url-pattern>
   </servlet-mapping>
 
 </web-app>
