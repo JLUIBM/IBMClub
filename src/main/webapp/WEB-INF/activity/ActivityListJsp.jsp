@@ -39,6 +39,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <p>活动地点:<%=temp.getLocation()%></p>
     <p>活动内容:<%=temp.getContent()%></p>
     <p>活动发布人ID:<%=temp.getUserId()%></p>
+    <form method="post" action="ActivityChangeServlet-admin">
+    	<input type="hidden" name="activity_id" value=<%=temp.getActivityId()%>>
+    	<input type="hidden" name="title" value=<%=temp.getTitle()%>>
+    	<input type="hidden" name="activity_time" value=<%=temp.getActivityTime()%>>
+    	<input type="hidden" name="manager" value=<%=temp.getManager()%>>
+    	<input type="hidden" name="location" value=<%=temp.getLocation()%>>
+    	<input type="hidden" name="content" value=<%=temp.getContent()%>>
+    	<input type="submit" value="修改">
+    </form>
+	
+	<form method="post" action="ActivityDeleteServlet-admin">
+		<input type="hidden" name="activity_id" value=<%=temp.getActivityId()%>>
+		<input type="submit" value="删除">
+	</form>
     <%
     }
      %>

@@ -57,6 +57,16 @@
         <servlet-name>ActivityInputServlet</servlet-name>
         <servlet-class>cn.jluibm.controller.ActivityInputServlet</servlet-class>
     </servlet>
+  <servlet>
+    <servlet-name>ActivityChangeServlet</servlet-name>
+    <servlet-class>cn.jluibm.controller.ActivityChangeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ActivityDeleteServlet</servlet-name>
+    <servlet-class>cn.jluibm.controller.ActivityDeleteServlet</servlet-class>
+  </servlet>
+
+
 
 
     <servlet-mapping>
@@ -87,6 +97,14 @@
         <servlet-name>ActivityInputServlet</servlet-name>
         <url-pattern>/ActivityInputServlet-admin</url-pattern>
     </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ActivityChangeServlet</servlet-name>
+    <url-pattern>/ActivityChangeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ActivityDeleteServlet</servlet-name>
+    <url-pattern>/ActivityDeleteServlet</url-pattern>
+  </servlet-mapping>
 
 </web-app>
 
