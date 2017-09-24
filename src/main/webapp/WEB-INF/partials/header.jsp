@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--@elvariable id="title" type="java.lang.String"--%>
+<%--@elvariable id="addition_head" type="java.lang.String"--%>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" style="height:100%;">
@@ -9,7 +10,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><c:out value="${title}" default="IBM俱乐部"/></title>
     <link href="<c:url value="/css/default.css"/> " type="text/css" rel="stylesheet">
-    <link href="<c:url value="/css/main.css"/>" type="text/css" rel="stylesheet">
+
+    <c:out value="${addition_head}" escapeXml="false" />
 </head>
 
 <body>

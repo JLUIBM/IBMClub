@@ -157,6 +157,37 @@
         margin-left: 5%;
     }
 
+
+    #users
+    {
+        font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+        width:100%;
+        border-collapse:collapse;
+    }
+    /*id为users 的标签里面的td标签和th标签的样式*/
+    #users td, #users th
+    {
+        font-size:1em;
+        border:1px solid #98BF21;
+        padding:3px 7px 2px 7px;
+    }
+    /*id为users 的标签里面的th标签的样式*/
+    #users th
+    {
+        font-size:1.1em;
+        text-align:left;
+        padding-top:5px;
+        padding-bottom:4px;
+        background-color:#A7C942;
+        color:#FFF;
+    }
+    /*id为users的标签里面的class名为alt的tr标签里面的td标签的样式*/
+    #users tr.alt td
+    {
+        color:#000;
+        background-color:#EAF2D3;
+    }
+
 </style>
 
 <div id="wrap">
@@ -194,7 +225,7 @@
 
                 <input name="method" type="hidden" value="delete" />
 
-                <table border="1">
+                <table id="users">
                     <tr>
                         <th></th>
                         <th>用户名</th>

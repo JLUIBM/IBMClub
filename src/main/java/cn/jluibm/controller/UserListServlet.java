@@ -10,10 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by hyec on 2017/5/28.
@@ -24,12 +21,11 @@ public class UserListServlet extends HttpServlet {
     private static final int pageSize = 10;
 
     private static final String[] allowedCondition = {
-            "sex", "grade", "degree"
+            "degree", "grade", "sex"
     };
     private static final String[] shownColumns = {
             "user_id"
     };
-
 
     private UserDao userDao;
 
@@ -48,8 +44,10 @@ public class UserListServlet extends HttpServlet {
             if (Arrays.binarySearch(allowedCondition, key) > 0) {
 
                 if (firstCond) {
-                    sqlBuilder.append(" AND ");
+                    sqlBuilder.append(" WHERE ");
                     firstCond = false;
+                } else {
+                    sqlBuilder.append(" AND ");
                 }
 
                 sqlBuilder.append(key).append(" = ?");
