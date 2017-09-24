@@ -5,9 +5,7 @@
 
 <c:set var="addition_head" scope="request">
     <link rel="stylesheet" href="<c:url value="/css/main.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/main.css"/>">
 </c:set>
-
 
 <c:import url="/WEB-INF/partials/header.jsp" />
 
